@@ -5,38 +5,32 @@ const ciclos = [
   {
     id: 1,
     nombre: "Administración de Sistemas Informáticos en Red",
-    codigo: "ASIR",
-    imagen: "🖥️"
+    codigo: "ASIR"
   },
   {
     id: 2,
     nombre: "Desarrollo de Aplicaciones Informáticas",
-    codigo: "DAI",
-    imagen: "💻"
+    codigo: "DAI"
   },
   {
     id: 3,
     nombre: "Electrónica Industrial",
-    codigo: "EI",
-    imagen: "⚡"
+    codigo: "EI"
   },
   {
     id: 4,
     nombre: "Electricidad y Automatismo",
-    codigo: "EA",
-    imagen: "🔌"
+    codigo: "EA"
   },
   {
     id: 5,
     nombre: "Mecanizado de Precisión",
-    codigo: "MP",
-    imagen: "⚙️"
+    codigo: "MP"
   },
   {
     id: 6,
     nombre: "Comercio Internacional",
-    codigo: "CI",
-    imagen: "🌍"
+    codigo: "CI"
   }
 ]
 
@@ -53,7 +47,6 @@ export const CiclosCarousel = () => {
           {ciclos.map((ciclo) => (
             <Card key={ciclo.id} className="ciclo-card hover:shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300">
               <CardHeader>
-                <div className="text-5xl mb-4">{ciclo.imagen}</div>
                 <CardTitle>{ciclo.nombre}</CardTitle>
                 <Badge variant="secondary" className="w-fit">{ciclo.codigo}</Badge>
               </CardHeader>

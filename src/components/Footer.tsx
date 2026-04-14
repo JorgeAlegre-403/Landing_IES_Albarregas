@@ -16,15 +16,12 @@ export const Footer = () => {
             <h4 className="text-lg font-semibold text-white mb-4">Contacto</h4>
             <ul className="space-y-2 text-gray-400">
               <li className="flex items-center">
-                <span className="mr-2">📍</span>
                 <span>Badajoz, España</span>
               </li>
               <li className="flex items-center">
-                <span className="mr-2">📧</span>
                 <span>info@iesalbarregas.es</span>
               </li>
               <li className="flex items-center">
-                <span className="mr-2">📞</span>
                 <span>+34 924 XX XX XX</span>
               </li>
             </ul>
