@@ -1,7 +1,5 @@
 import { Button } from '@/ui/button'
 import { useState, useEffect } from 'react'
-
-// Importar las fotos del carrusel
 import fotoCarrusel1 from '@/assets/Foto-carrusel1.jpg'
 import fotoCarrusel2 from '@/assets/Foto-carrusel2.jpg'
 import fotoCarrusel3 from '@/assets/Foto-carrusel3.jpg'

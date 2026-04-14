@@ -47,8 +47,8 @@ export const InfoCiclos = () => {
                     <h4 className="font-semibold text-gray-900 mb-3">Módulos</h4>
                     <ul className="space-y-2">
                       {ciclo.modulos.map((modulo, idx) => (
-                        <li key={idx} className="flex items-start">
-                          <span className="text-blue-600 mr-2">✓</span>
+                        <li key={idx} className="flex items-start gap-3">
+                          <span className="text-blue-600 font-bold">•</span>
                           <span className="text-gray-700">{modulo}</span>
                         </li>
                       ))}
