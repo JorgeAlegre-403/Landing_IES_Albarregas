@@ -1,6 +1,5 @@
 import { Button } from '@/ui/button'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/ui/card'
-import { Suspense, lazy } from 'react'
 
 // Para optimización: si este componente crece significativamente (>50KB),
 // considera usar code-splitting con React.lazy():
