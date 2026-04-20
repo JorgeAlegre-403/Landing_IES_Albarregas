@@ -45,7 +45,18 @@ export const CiclosCarousel = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ciclos.map((ciclo) => (
-            <Card key={ciclo.id} className="ciclo-card hover:shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300">
+            <Card 
+              key={ciclo.id} 
+              className="ciclo-card hover:shadow-lg cursor-pointer hover:scale-105 transition-transform duration-300"
+              role="button"
+              tabIndex={0}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.code === 'Space') {
+                  e.preventDefault()
+                  console.log(`Ciclo seleccionado: ${ciclo.nombre}`)
+                }
+              }}
+            >
               <CardHeader>
                 <CardTitle>{ciclo.nombre}</CardTitle>
                 <Badge variant="secondary" className="w-fit">{ciclo.codigo}</Badge>
