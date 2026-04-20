@@ -21,9 +21,18 @@ export const Hero = () => {
     return () => clearInterval(timer)
   }, [slides.length])
 
+  const slideDescriptions = [
+    "Estudiantes en el laboratorio de informática trabajando en proyectos",
+    "Aula de formación profesional con equipos modernos",
+    "Campus del IES Albarregas"
+  ]
+
   return (
     <section
       id="hero"
+      aria-label="carrusel"
+      aria-live="polite"
+      aria-atomic="false"
       className="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden"
     >
       <div className="absolute inset-0 z-0">
@@ -31,12 +40,15 @@ export const Hero = () => {
           <img
             key={index}
             src={slide}
-            alt={`Carrusel slide ${index + 1}`}
+            alt={slideDescriptions[index]}
+            width={1920}
+            height={1080}
+            loading={index === 0 ? "eager" : "lazy"}
             className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-1000 ease-in-out ${index === currentSlide ? 'opacity-100' : 'opacity-0'
               }`}
           />
         ))}
-        <div className="absolute inset-0 bg-black/40 z-10"></div>
+        <div className="absolute inset-0 bg-black/50 z-10"></div>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 text-center relative z-20 animate-fade-in">
@@ -67,14 +79,16 @@ export const Hero = () => {
         </div>
       </div>
 
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-20">
+      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 flex gap-2 z-20" role="tablist" aria-label="Controles del carrusel">
         {slides.map((_, index) => (
           <button
             key={index}
             onClick={() => setCurrentSlide(index)}
+            role="tab"
+            aria-selected={index === currentSlide}
+            aria-label={`Ir a diapositiva ${index + 1}`}
             className={`w-3 h-3 rounded-full transition-all duration-300 ${index === currentSlide ? 'bg-white w-8' : 'bg-white/50'
               }`}
-            aria-label={`Go to slide ${index + 1}`}
           />
         ))}
       </div>

@@ -1,5 +1,11 @@
 import { Button } from '@/ui/button'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/ui/card'
+import { Suspense, lazy } from 'react'
+
+// Para optimización: si este componente crece significativamente (>50KB),
+// considera usar code-splitting con React.lazy():
+// export const InfoCiclos = lazy(() => import('./InfoCiclos').then(m => ({ default: m.InfoCiclosContent })))
+// Luego envuelve en <Suspense> en el componente padre
 
 const ciclosDetalle = [
   {
@@ -37,7 +43,7 @@ export const InfoCiclos = () => {
         <div className="space-y-8">
           {ciclosDetalle.map((ciclo) => (
             <Card key={ciclo.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-              <CardHeader className="bg-linear-to-r from-blue-500 to-indigo-600 text-white">
+              <CardHeader className="bg-linear-to-r from-blue-600 to-indigo-700 text-white">
                 <CardTitle className="text-white">{ciclo.nombre}</CardTitle>
                 <CardDescription className="text-blue-100">{ciclo.descripcion}</CardDescription>
               </CardHeader>
@@ -55,10 +61,15 @@ export const InfoCiclos = () => {
                     </ul>
                   </div>
                   <div className="flex flex-col justify-between">
-                    <p className="text-gray-600 mb-4">
+                    <p className="text-gray-700 mb-4">
                       Conoce todos los detalles de este ciclo y sus módulos accediendo a la plataforma educativa.
                     </p>
-                    <a href={ciclo.enlaceEducarex} target="_blank" rel="noopener noreferrer">
+                    <a 
+                      href={ciclo.enlaceEducarex} 
+                      target="_blank" 
+                      rel="noopener noreferrer"
+                      aria-label={`Ver ${ciclo.nombre} en Educarex - se abre en pestaña nueva`}
+                    >
                       <Button variant="outline" className="w-full">
                         Ver en Educarex →
                       </Button>
