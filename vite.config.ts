@@ -12,9 +12,5 @@ export default defineConfig({
   },
   build: {
     minify: 'terser',
-    terserOptions: {
-      compress: true,
-      mangle: true,
-    },
   },
 })
