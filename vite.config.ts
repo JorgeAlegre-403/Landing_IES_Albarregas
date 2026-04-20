@@ -10,4 +10,11 @@ export default defineConfig({
       '@': '/src',
     },
   },
+  build: {
+    minify: 'terser',
+    terserOptions: {
+      compress: true,
+      mangle: true,
+    },
+  },
 })
