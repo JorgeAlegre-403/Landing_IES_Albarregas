@@ -1,65 +1,88 @@
 import { Card, CardHeader, CardTitle, CardContent } from '@/ui/card'
 
+const features = [
+  {
+    gradientClass: "bg-gradient-to-br from-blue-500 to-blue-700",
+    title: "Plataforma E-Learning",
+    description: "Accede a recursos educativos, tareas y materiales disponibles las 24 horas desde cualquier dispositivo.",
+  },
+  {
+    gradientClass: "bg-gradient-to-br from-purple-500 to-purple-700",
+    title: "Comunidad Estudiantil",
+    description: "Conecta con compañeros, forma grupos de trabajo y colabora en proyectos en equipo.",
+  },
+  {
+    gradientClass: "bg-gradient-to-br from-indigo-500 to-indigo-700",
+    title: "Prácticas en Empresa",
+    description: "Realiza el módulo de FCT en empresas reales del sector y gana experiencia profesional antes de titularte.",
+  },
+]
+
+const razones = [
+  "Profesorado altamente cualificado con contacto directo con la industria",
+  "Instalaciones modernas equipadas con tecnología actual",
+  "Oportunidades para participar en proyectos internacionales Erasmus+",
+  "Alta empleabilidad: más del 85% de nuestros graduados trabaja en su sector",
+]
+
 export const ApartadoExtra = () => {
-
   return (
-    <section id="extra" className="py-20 px-4 bg-linear-to-br from-blue-50 via-purple-50 to-indigo-50">
+    <section
+      id="extra"
+      className="py-20 px-4 bg-gradient-to-br from-blue-50 via-purple-50 to-indigo-50"
+    >
       <div className="max-w-4xl mx-auto">
-        <div>
-          <h2 className="text-4xl font-bold text-center text-gray-900 mb-12">Campus Virtual</h2>
-          
-          <div className="grid md:grid-cols-3 gap-6 mb-12">
-            <Card className="text-center">
+
+        {/* H2 de sección */}
+        <h2 className="text-4xl font-bold text-center text-gray-900 mb-3">
+          Campus Virtual
+        </h2>
+        <p className="text-center text-lg text-gray-600 mb-12 max-w-lg mx-auto">
+          Herramientas y recursos para complementar tu formación presencial
+        </p>
+
+        {/* Principio de proximidad: icono y título agrupados, separados del texto */}
+        <div className="grid md:grid-cols-3 gap-6 mb-12">
+          {features.map(({ gradientClass, title, description }) => (
+            <Card key={title} className="text-center hover:shadow-md transition-shadow">
               <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-lg mx-auto mb-4"></div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Plataforma E-Learning</h3>
-                <p className="text-gray-600">Accede a nuestro campus virtual con recursos educativos disponibles 24/7</p>
+                {/* Elemento decorativo — aria-hidden (no aporta información) */}
+                <div
+                  className={`w-14 h-14 ${gradientClass} rounded-xl mx-auto mb-4 shadow-md`}
+                  aria-hidden="true"
+                />
+                {/* H3 — jerarquía visual */}
+                <h3 className="text-lg font-semibold text-gray-900 mb-2">{title}</h3>
+                {/* Texto cuerpo ≥16px (base = 1rem = 16px) */}
+                <p className="text-base text-gray-700 leading-relaxed">{description}</p>
               </CardContent>
             </Card>
-
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg mx-auto mb-4"></div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Comunidad Estudiantil</h3>
-                <p className="text-gray-600">Conecta con otros estudiantes, forma grupos de trabajo y colabora en proyectos</p>
-              </CardContent>
-            </Card>
-
-            <Card className="text-center">
-              <CardContent className="pt-6">
-                <div className="w-16 h-16 bg-gradient-to-br from-indigo-400 to-indigo-600 rounded-lg mx-auto mb-4"></div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-2">Prácticas Empresariales</h3>
-                <p className="text-gray-600">Realiza prácticas en empresas reales y gana experiencia profesional</p>
-              </CardContent>
-            </Card>
-          </div>
-
-          <Card className="bg-white border-2 border-blue-200">
-            <CardHeader>
-              <CardTitle className="text-2xl">¿Por qué elegir IES Albarregas?</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <ul className="space-y-3">
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Profesorado altamente cualificado y en contacto con la industria</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Instalaciones modernas y equipadas con tecnología actual</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Oportunidades para participar en proyectos internacionales</span>
-                </li>
-                <li className="flex items-start gap-3">
-                  <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
-                  <span className="text-gray-700">Alta empleabilidad de nuestros graduados</span>
-                </li>
-              </ul>
-            </CardContent>
-          </Card>
+          ))}
         </div>
+
+        {/* Principio de alineación: lista de razones alineada a la izquierda con texto */}
+        <Card className="bg-white border-2 border-blue-200">
+          <CardHeader>
+            <CardTitle className="text-2xl text-gray-900">
+              ¿Por qué elegir IES Albarregas?
+            </CardTitle>
+          </CardHeader>
+          <CardContent>
+            <ul className="space-y-4">
+              {razones.map((razon) => (
+                <li key={razon} className="flex items-start gap-4">
+                  {/* Bullet con color de marca — principio de jerarquía: destaca lo positivo */}
+                  <div
+                    className="w-2.5 h-2.5 bg-blue-600 rounded-full mt-2 flex-shrink-0"
+                    aria-hidden="true"
+                  />
+                  <span className="text-base text-gray-700 leading-relaxed">{razon}</span>
+                </li>
+              ))}
+            </ul>
+          </CardContent>
+        </Card>
+
       </div>
     </section>
   )
